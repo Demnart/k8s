@@ -15,3 +15,14 @@
 - name: Update package manager
   ansible.builtin.apt:
     update_cache: true
+
+- name: Install container.d
+  ansible.builtin.apt:
+    name: containerd.io
+    state: present
+
+- name: Create container.d direcotory
+  ansible.builtin.file:
+    path: /etc/containerd
+    state: directory
+    mode: '0755'
