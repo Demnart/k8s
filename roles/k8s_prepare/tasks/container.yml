@@ -32,4 +32,3 @@
     sudo containerd config default | sudo tee /etc/containerd/config.toml
   args:
     creates: /etc/containerd/config.toml
-
