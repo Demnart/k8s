@@ -1,5 +1,5 @@
 ---
 - name: Restart container.d
   ansible.builtin.systemd_service:
-    name: restart container.d
+    name: containerd.service
     state: restarted
