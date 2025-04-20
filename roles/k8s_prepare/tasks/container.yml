@@ -1,8 +1,6 @@
 - name: Upload docker key
   ansible.builtin.apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
-    file: /etc/apt/keyrings/docker.asc
-    state: present
 
 - name: Add docker to Apt source
   ansible.builtin.template:
