@@ -16,3 +16,9 @@
   ansible.builtin.file:
     path: /tmp/crictl-{{ crictl_version }}-linux-amd64.tar.gz
     state: absent
+
+- name: Create crictl config
+  ansible.builtin.template:
+    src: crictl.j2
+    dest: /etc/crictl.yml
+    mode: '0644'
