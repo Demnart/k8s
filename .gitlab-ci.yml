@@ -1,7 +1,14 @@
 stages:          # List of stages for jobs, and their order of execution
   - test
+  - deploy
 
-unit-test-job:   # This job runs in the test stage.
+lint_stage:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
   script:
-    - ansible -i inventory/* -m ping -u gitlab-runner all
+    - ansible-lint
+
+deploy_to_nodes:
+  stage: deploy
+  script:
+    - ansible-playbook -i inventory/* main.yml all
+  when: manual

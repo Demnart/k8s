@@ -1,0 +1,5 @@
+{
+    "ansible.ansible.path": "~/.local/share/pipx/venvs/ansible-core/bin/ansible",
+    "ansible.ansibleLint.path": "~/.local/share/pipx/venvs/ansible-lint/bin/ansible-lint",
+    "ansible.python.interpreterPath": "~/.local/share/pipx/venvs/ansible-core/bin/python3"
+  }
