@@ -28,7 +28,8 @@
     mode: '0755'
 
 - name: Create congtainerd configuration file
-  ansible.builtin.command: >
-    sudo containerd config default | sudo tee /etc/containerd/config.toml
+  ansible.builtin.shell: |
+    containerd config default > /etc/containerd/config.toml
   args:
+    executable: /bin/bash
     creates: /etc/containerd/config.toml
