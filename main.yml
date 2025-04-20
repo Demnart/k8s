@@ -1,0 +1,8 @@
+---
+- name: Preinstall nodes
+  hosts: all
+  become: true
+  tags:
+    - k8s-config
+  roles:
+    - k8s-config
