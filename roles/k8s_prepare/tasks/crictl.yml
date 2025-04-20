@@ -20,5 +20,5 @@
 - name: Create crictl config
   ansible.builtin.template:
     src: crictl.j2
-    dest: /etc/crictl.yml
+    dest: /etc/crictl.yaml
     mode: '0644'
