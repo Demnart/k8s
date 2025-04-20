@@ -10,5 +10,5 @@ lint_stage:   # This job runs in the test stage.
 deploy_to_nodes:
   stage: deploy
   script:
-    - ansible-playbook -i inventory/* main.yml all
+    - ansible-playbook -i inventory/* main.yml
   when: manual
