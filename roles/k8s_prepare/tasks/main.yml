@@ -1,3 +1,6 @@
 ---
 - name: Install base
   ansible.builtin.import_tasks: base.yml
+
+- name: Install container.d
+  ansible.builtin.import_tasks: container.yml
