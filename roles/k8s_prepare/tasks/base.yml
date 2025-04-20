@@ -16,7 +16,7 @@
 
 - name: Load installed modules permanently
   ansible.builtin.template:
-    src: kernel.yml
+    src: kernel.j2
     dest: /etc/modules-load.d/k8s.conf
     owner: root
     group: root
