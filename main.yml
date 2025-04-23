@@ -6,3 +6,11 @@
     - k8s-config
   roles:
     - k8s_prepare
+
+- name: Install kubeadm
+  hosts: all
+  become: true
+  tags:
+    - kubeadm-install
+  roles:
+    - kubeadm_install
