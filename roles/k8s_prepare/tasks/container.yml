@@ -21,6 +21,11 @@
     name: containerd.io
     state: present
 
+- name: Enable container.d
+  ansible.builtin.systemd_service:
+    enabled: true
+    name: containerd.service
+
 - name: Create container.d direcotory
   ansible.builtin.file:
     path: /etc/containerd
