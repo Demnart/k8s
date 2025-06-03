@@ -1,0 +1,22 @@
+stages:          # List of stages for jobs, and their order of execution
+  - test
+  - deploy
+
+lint_stage:   # This job runs in the test stage.
+  stage: test    # It only starts when the job in the build stage completes successfully.
+  script:
+    - ansible-lint
+
+kubeadm_install:
+  stage: deploy
+  script:
+    - ansible-playbook -i inventory/* main.yml --tags k8s-config,kubeadm-install
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      when: on_success
+
+cluster_create:
+  stage: deploy
+  script:
+    - ansible-playbook -i inventory/* main.yml --tags control-init,workers-join
+  when: manual

@@ -1,0 +1,32 @@
+---
+- name: Preinstall nodes
+  hosts: all
+  become: true
+  tags:
+    - k8s-config
+  roles:
+    - k8s_prepare
+
+- name: Install kubeadm
+  hosts: all
+  become: true
+  tags:
+    - kubeadm-install
+  roles:
+    - kubeadm_install
+
+- name: Init control node
+  hosts: k8-control
+  become: true
+  tags:
+    - control-init
+  roles:
+    - control_node_install
+
+- name: Join worker nodes
+  hosts: k8-workers
+  become: true
+  tags:
+    - workers-join
+  roles:
+    - workers_join
